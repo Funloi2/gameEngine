@@ -1,6 +1,7 @@
 package com.base.engine;
 
 import com.sun.tools.javac.Main;
+import org.lwjgl.opengl.Display;
 
 public class MainComponent {
 
@@ -8,33 +9,38 @@ public class MainComponent {
     private static final int HEIGHT = 600;
     private static final String TITLE = "Game Engine";
 
-    public MainComponent() {
+    private boolean isRunning;
 
+    public MainComponent() {
+        isRunning=false;
     }
 
     public void start() {
+        if(isRunning) return;
         run();
     }
 
     public void stop() {
-
+        if(!isRunning) return;
+        isRunning=false;
     }
 
-    public void run() {
-        while(!Window.isCloseRequested()) {
+    private void run() {
+        isRunning = true;
+        while(isRunning){
+            if(Window.isCloseRequested()) stop();
             render();
         }
-        if (Window.isCloseRequested()) {
-            cleanUp();
-        }
+
+        cleanUp();
     }
 
-    public void render() {
+    private void render() {
         Window.render();
     }
 
-    public void cleanUp() {
-        System.out.println("Cleaning up resources...");
+    private void cleanUp() {
+        Window.dispose();
     }
 
     public static void main(String[] args) {

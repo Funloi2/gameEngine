@@ -15,6 +15,13 @@ public class Game {
         if (Input.getKeyUp(Keyboard.KEY_UP)){
             System.out.println("Up release");
         }
+//MOUSE TEST
+        if (Input.getMouseDown(1)){
+            System.out.println("right clicked");
+        }
+        if (Input.getMouseUp(1)){
+            System.out.println("right clicked released");
+        }
     }
 
     public void update(){}

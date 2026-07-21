@@ -1,6 +1,7 @@
 package com.base.engine;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 
 public class Game {
 
@@ -17,10 +18,10 @@ public class Game {
         }
 //MOUSE TEST
         if (Input.getMouseDown(1)){
-            System.out.println("right clicked");
+            System.out.println("right clicked at :" + Input.getMousePosition());
         }
         if (Input.getMouseUp(1)){
-            System.out.println("right clicked released");
+            System.out.println("right clicked released at :" + Input.getMousePosition());
         }
     }
 

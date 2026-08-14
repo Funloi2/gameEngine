@@ -49,7 +49,7 @@ public class Quaternion {
         float y_= w * v.getY() + z * v.getX() - x * v.getZ();
         float z_= w * v.getZ() + x * v.getY() - y * v.getX();
 
-        return new Quaternion(w_, x_, y_, z_);
+        return new Quaternion(x_, y_, z_, w_);
     }
 
     public float getX() {
